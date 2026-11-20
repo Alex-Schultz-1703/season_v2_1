@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<!-- SÉASONS Luxury Floral Atelier -->
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SÉASONS — Дарить — это искусство | Флористическое ателье</title>
+  
+  <!-- Typography: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- GSAP 3 & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom GSAP Interactive Cursor -->
+  <div class="custom-cursor" id="customCursor">
+    <div class="custom-cursor__dot"></div>
+    <div class="custom-cursor__ring"></div>
+  </div>
+
+  <!-- ==========================================================================
+       HEADER
+       ========================================================================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <!-- Navigation Left -->
+        <nav class="header__nav">
+          <a href="#about" class="header__nav-link js-cursor-hover">О нас</a>
+          <a href="#catalog" class="header__nav-link js-cursor-hover">Каталог</a>
+          <a href="#care" class="header__nav-link js-cursor-hover">Уход</a>
+        </nav>
+
+        <!-- Centered Logo -->
+        <div class="header__center">
+          <a href="#" class="brand-logo js-cursor-hover" aria-label="SÉASONS Floral Atelier">
+            S<span class="brand-logo__e-wrapper">E<svg class="brand-logo__petal" viewBox="0 0 14 22"><path d="M7,0 C12,6 14,14 7,22 C0,14 2,6 7,0 Z"/></svg></span>ASONS
+          </a>
+        </div>
+
+        <!-- Actions Right -->
+        <div class="header__actions">
+          <a href="tel:+79255370808" class="header__phone js-cursor-hover">+7 (925) 537-08-08</a>
+          <button class="header__btn js-magnetic js-cursor-hover" id="openOrderModalBtn">
+            <span>Индивидуальный заказ</span>
+          </button>
+          
+          <button class="header__cart-button js-cursor-hover" id="cartOpenBtn" aria-label="Корзина">
+            <svg class="header__cart-icon" viewBox="0 0 24 24">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="header__cart-badge" id="cartBadgeCount">0</span>
+          </button>
+
+          <button class="header__burger js-cursor-hover" id="burgerToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__links">
+      <a href="#about" class="mobile-menu__link mobile-link">О нас</a>
+      <a href="#catalog" class="mobile-menu__link mobile-link">Коллекции</a>
+      <a href="#care" class="mobile-menu__link mobile-link">Памятка по уходу</a>
+      <a href="#packaging" class="mobile-menu__link mobile-link">Упаковка и доставка</a>
+      <a href="#footer" class="mobile-menu__link mobile-link">Контакты</a>
+    </div>
+    <div class="mobile-menu__info">
+      <p>Балашиха, ул. Заречная, д. 32</p>
+      <p>Режим работы: пн-вс 10:00 — 20:00</p>
+      <a href="tel:+79255370808" style="font-weight: 600; display: block; margin-top: 8px;">+7 (925) 537-08-08</a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO (BEM: .hero)
+       Clean editorial layout without mini-subtitles
+       ========================================================================== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__text-col">
+          <h1 class="hero__title">
+            <span class="hero__title-line-mask">
+              <span class="hero__title-line">Дарить —</span>
+            </span>
+            <span class="hero__title-line-mask">
+              <span class="hero__title-line"><span class="hero__title-em">это искусство</span></span>
+            </span>
+          </h1>
+
+          <p class="hero__desc">
+            "SÉASONS" воплощает гармонию чистой природы и современную эстетику флористики. Каждая деталь тщательно продумана, чтобы подарить захватывающий визуальный опыт.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#catalog" class="btn-luxury btn-luxury--primary js-magnetic js-cursor-hover">
+              <span>Смотреть букеты</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <button class="btn-luxury btn-luxury--secondary js-magnetic js-cursor-hover" id="heroConsultBtn">
+              <span>Консультация флориста</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero__media-col">
+          <div class="hero__frame" data-parallax="true">
+            <img class="hero__image" 
+                 src="img/main-hero.jpg"
+                 alt="SÉASONS Floral Art">
+          </div>
+          <div class="hero__tag">
+            <p class="hero__tag-text">«Создаем букеты, которые вдохновляют»</p>
+            <span class="hero__tag-sub">SÉASONS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TICKER (BEM: .ticker)
+       ========================================================================== -->
+  <section class="ticker" aria-hidden="true">
+    <div class="ticker__track" id="tickerTrack">
+      <div class="ticker__list">
+        <span class="ticker__item">SÉASONS <span class="ticker__dot"></span></span>
+        <span class="ticker__item">СЕЗОННЫЕ КОЛЛЕКЦИИ <span class="ticker__dot"></span></span>
+        <span class="ticker__item">ЕСТЕСТВЕННОСТЬ — ЭТО СТИЛЬ <span class="ticker__dot"></span></span>
+        <span class="ticker__item">ДАРИТЬ — ЭТО ИСКУССТВО <span class="ticker__dot"></span></span>
+        <span class="ticker__item">БАЛАШИХА • ЗАРЕЧНАЯ 32 <span class="ticker__dot"></span></span>
+      </div>
+      <div class="ticker__list">
+        <span class="ticker__item">SÉASONS <span class="ticker__dot"></span></span>
+        <span class="ticker__item">СЕЗОННЫЕ КОЛЛЕКЦИИ <span class="ticker__dot"></span></span>
+        <span class="ticker__item">ЕСТЕСТВЕННОСТЬ — ЭТО СТИЛЬ <span class="ticker__dot"></span></span>
+        <span class="ticker__item">ДАРИТЬ — ЭТО ИСКУССТВО <span class="ticker__dot"></span></span>
+        <span class="ticker__item">БАЛАШИХА • ЗАРЕЧНАЯ 32 <span class="ticker__dot"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONCEPT / ABOUT (BEM: .concept)
+       Subtitles and overlines removed
+       ========================================================================== -->
+  <section class="concept" id="about">
+    <div class="container">
+      <div class="concept__intro">
+        <h2 class="concept__quote">
+          «Естественность — это стиль. Мы слышим смену сезонов и раскрываем характер природы <span class="concept__quote-italic">в каждом бутоне</span>.»
+        </h2>
+        <p class="concept__desc">
+          Каждый созданный букет — это произведение искусства, в котором учитываются сезонные цветовые палитры, текстуры и формы, позволяя создавать решения, отражающие характер текущего периода.
+        </p>
+      </div>
+
+      <div class="concept__grid">
+        <div class="concept__card">
+          <div>
+            <div class="concept__card-num">01</div>
+            <h3 class="concept__card-title">Палитра оттенков</h3>
+            <p class="concept__card-text">
+              Чёрный, шалфейный, белый и бежевый цвета, включая их смежные полутона. Природность и благородные оттенки подчеркивают качество и формируют доверие.
+            </p>
+          </div>
+          <div class="concept__palette">
+            <span class="concept__swatch" style="background: #141414;" title="Graphite"></span>
+            <span class="concept__swatch" style="background: #7B8871;" title="Sage"></span>
+            <span class="concept__swatch" style="background: #FFFFFF;" title="White"></span>
+            <span class="concept__swatch" style="background: #C8BDB0;" title="Sand"></span>
+          </div>
+        </div>
+
+        <div class="concept__card">
+          <div>
+            <div class="concept__card-num">02</div>
+            <h3 class="concept__card-title">Архитектурный стиль</h3>
+            <p class="concept__card-text">
+              Букеты как живая скульптура в интерьере. Строгий минималистичный баланс между воздушными сухоцветами, выразительными амариллисами и геометрией линий.
+            </p>
+          </div>
+          <div class="concept__palette">
+            <svg width="48" height="20" viewBox="0 0 48 20" fill="none">
+              <path d="M0 10H46M46 10L36 2M46 10L36 18" stroke="#7B8871" stroke-width="1.4"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="concept__card">
+          <div>
+            <div class="concept__card-num">03</div>
+            <h3 class="concept__card-title">Культура заботы</h3>
+            <p class="concept__card-text">
+              Фирменная упаковка, памятка на хлопковой бумаге и персонализированная открытка создают целостный эстетический ритуал в момент вручения букета.
+            </p>
+          </div>
+          <div class="concept__palette">
+            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-sage-dark);">SÉASONS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CATALOG (BEM: .catalog)
+       Subtitles and overlines removed
+       ========================================================================== -->
+  <section class="catalog" id="catalog">
+    <div class="container">
+      <div class="catalog__header">
+        <h2 class="catalog__title">Сезонные Букеты</h2>
+
+        <!-- Interactive Filter Tabs -->
+        <div class="catalog__filters" id="catalogFilters">
+          <button class="catalog__filter-btn catalog__filter-btn--active js-cursor-hover" data-filter="all">Все композиции</button>
+          <button class="catalog__filter-btn js-cursor-hover" data-filter="seasonal">Сезонные</button>
+          <button class="catalog__filter-btn js-cursor-hover" data-filter="mono">Монобукеты</button>
+          <button class="catalog__filter-btn js-cursor-hover" data-filter="minimal">Сухоцветы & Минимализм</button>
+        </div>
+      </div>
+
+      <!-- Catalog Grid -->
+      <div class="catalog__grid" id="catalogGrid">
+        
+        <!-- Card 1 -->
+        <div class="product-card" data-category="seasonal">
+          <div class="product-card__media">
+            <span class="product-card__badge">Бестселлер</span>
+            <img class="product-card__image" 
+                 src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" 
+                 alt="Amélie No. 04">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__header">
+              <h3 class="product-card__title">Amélie No. 04</h3>
+              <p class="product-card__composition">Белые амариллисы, эвкалипт цинерея, шаровидная белая гомфрена</p>
+            </div>
+            <div class="product-card__footer">
+              <span class="product-card__price">5 800 ₽</span>
+              <button class="product-card__btn js-add-to-cart js-cursor-hover" 
+                      data-name="Amélie No. 04" 
+                      data-price="5800" 
+                      data-img="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=300&q=80">
+                В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card" data-category="minimal">
+          <div class="product-card__media">
+            <span class="product-card__badge">Минимализм</span>
+            <img class="product-card__image" 
+                 src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=800&q=80" 
+                 alt="Gomphrena Pure">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__header">
+              <h3 class="product-card__title">Gomphrena Pure</h3>
+              <p class="product-card__composition">Шаровидная белая гомфрена, лунария, матовая оберточная бумага</p>
+            </div>
+            <div class="product-card__footer">
+              <span class="product-card__price">4 600 ₽</span>
+              <button class="product-card__btn js-add-to-cart js-cursor-hover" 
+                      data-name="Gomphrena Pure" 
+                      data-price="4600" 
+                      data-img="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=300&q=80">
+                В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card" data-category="mono">
+          <div class="product-card__media">
+            <span class="product-card__badge">Монохром</span>
+            <img class="product-card__image" 
+                 src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" 
+                 alt="White Calla Classic">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__header">
+              <h3 class="product-card__title">White Calla Classic</h3>
+              <p class="product-card__composition">9 отборных белых калл, шелковая графитовая лента, тубус</p>
+            </div>
+            <div class="product-card__footer">
+              <span class="product-card__price">7 900 ₽</span>
+              <button class="product-card__btn js-add-to-cart js-cursor-hover" 
+                      data-name="White Calla Classic" 
+                      data-price="7900" 
+                      data-img="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=300&q=80">
+                В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="product-card" data-category="seasonal">
+          <div class="product-card__media">
+            <span class="product-card__badge">Авторский</span>
+            <img class="product-card__image" 
+                 src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800&q=80" 
+                 alt="L'Élégance Blanche">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__header">
+              <h3 class="product-card__title">L'Élégance Blanche</h3>
+              <p class="product-card__composition">Ранункулюсы, анемоны, садовые розы, эустома, зелень самшита</p>
+            </div>
+            <div class="product-card__footer">
+              <span class="product-card__price">8 400 ₽</span>
+              <button class="product-card__btn js-add-to-cart js-cursor-hover" 
+                      data-name="L'Élégance Blanche" 
+                      data-price="8400" 
+                      data-img="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=300&q=80">
+                В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="product-card" data-category="minimal">
+          <div class="product-card__media">
+            <span class="product-card__badge">Сухоцветы</span>
+            <img class="product-card__image" 
+                 src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80" 
+                 alt="Cerealia & Linen">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__header">
+              <h3 class="product-card__title">Cerealia & Linen</h3>
+              <p class="product-card__composition">Кремовые гвоздики, кукурузные листья, пшеничные сухоцветы, лента</p>
+            </div>
+            <div class="product-card__footer">
+              <span class="product-card__price">4 900 ₽</span>
+              <button class="product-card__btn js-add-to-cart js-cursor-hover" 
+                      data-name="Cerealia & Linen" 
+                      data-price="4900" 
+                      data-img="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=300&q=80">
+                В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="product-card" data-category="mono">
+          <div class="product-card__media">
+            <span class="product-card__badge">Ателье Box</span>
+            <img class="product-card__image" 
+                 src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=800&q=80" 
+                 alt="Signature Box No. 01">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__header">
+              <h3 class="product-card__title">Signature Box No. 01</h3>
+              <p class="product-card__composition">Белый антуриум, сортовая орхидея фаленопсис, подарочный пакет SÉASONS</p>
+            </div>
+            <div class="product-card__footer">
+              <span class="product-card__price">6 500 ₽</span>
+              <button class="product-card__btn js-add-to-cart js-cursor-hover" 
+                      data-name="Signature Box No. 01" 
+                      data-price="6500" 
+                      data-img="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=300&q=80">
+                В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CARE GUIDE (BEM: .care-guide)
+       Exact text from presentation slides
+       ========================================================================== -->
+  <section class="care-guide" id="care">
+    <div class="container">
+      <div class="care-guide__grid">
+        <div class="care-guide__aside">
+          <h2 class="care-guide__title">Памятка по уходу за цветами</h2>
+          <p class="care-guide__desc">
+            Цветы — это искусство, требующее чуткого внимания. Пять базовых правил, сохраняющих первозданную свежесть и аромат композиции в вашем доме.
+          </p>
+          <div class="care-guide__badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Вкладывается в каждый букет</span>
+          </div>
+        </div>
+
+        <div class="care-guide__list">
+          <!-- Rule 1 -->
+          <div class="care-step js-cursor-hover">
+            <div class="care-step__num">01</div>
+            <div class="care-step__text">
+              <strong>Снимите упаковочную бумагу и обрежьте стебли на 1 - 2 сантиметра под углом 45°С.</strong> Используйте острые ножницы или секатор, чтобы не повредить стебли и не закупорить капилляры цветка.
+            </div>
+          </div>
+
+          <!-- Rule 2 -->
+          <div class="care-step js-cursor-hover">
+            <div class="care-step__num">02</div>
+            <div class="care-step__text">
+              <strong>Удалите листья, которые находятся ниже уровня воды в вазе.</strong> Это предотвратит гниение и образование бактерий, которые могут значительно сократить срок жизни цветов.
+            </div>
+          </div>
+
+          <!-- Rule 3 -->
+          <div class="care-step js-cursor-hover">
+            <div class="care-step__num">03</div>
+            <div class="care-step__text">
+              <strong>Переставьте букет в вазу с проточной прохладной водой.</strong> Чистая прохладная вода поддерживает тонус лепестков и замедляет естественное увядание.
+            </div>
+          </div>
+
+          <!-- Rule 4 -->
+          <div class="care-step js-cursor-hover">
+            <div class="care-step__num">04</div>
+            <div class="care-step__text">
+              <strong>Регулярно меняйте цветам воду и освежайте срез острым ножом или секатором каждые 2-3 дня.</strong> Тщательно промывайте саму вазу перед повторным наполнением.
+            </div>
+          </div>
+
+          <!-- Rule 5 -->
+          <div class="care-step js-cursor-hover">
+            <div class="care-step__num">05</div>
+            <div class="care-step__text">
+              <strong>Держите букет вдали от прямых солнечных лучей, сквозняков и источников тепла.</strong> Подходящая температура для комфортной стойкости композиции составляет ~18-22 градуса.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PACKAGING & PRESENTATION (BEM: .packaging)
+       ========================================================================== -->
+  <section class="packaging" id="packaging">
+    <div class="container">
+      <div class="packaging__grid">
+        <div class="packaging__content">
+          <h2 class="packaging__title">Фирменная упаковка</h2>
+          <p class="packaging__text">
+            Каждая деталь тщательно продумана, чтобы создать визуально захватывающий опыт и подарить приятные эмоции клиентам и получателям.
+          </p>
+
+          <div class="packaging__features">
+            <div class="packaging-card">
+              <h3 class="packaging-card__title">Аквабокс & Термозащита</h3>
+              <p class="packaging-card__desc">Букет отправляется на временном гидропитании и в специальном защитном коробе с контролем температуры.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="packaging__visual">
+          <div class="packaging__frame" data-parallax="true">
+            <img class="packaging__image" 
+                 src="img/paket.jpg" 
+                 alt="Упаковка Seasons Atelier">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ORDER SECTION (same form as the "Оформить заказ" modal)
+       ========================================================================== -->
+  <section class="order-section" id="order">
+    <div class="container">
+      <div class="order-section__grid">
+        <div class="order-section__intro">
+          <h2 class="order-section__title">Оформить <span class="order-section__title-em">заказ</span></h2>
+          <p class="order-section__desc">Флорист свяжется с вами для уточнения деталей, согласует состав букета и пришлёт фото перед отправкой.</p>
+          <a href="tel:+79255370808" class="order-section__phone js-cursor-hover">+7 (925) 537-08-08</a>
+        </div>
+
+        <div class="order-section__card">
+          <div id="inlineOrderFormWrap">
+            <form class="modal__form" id="inlineOrderForm">
+              <div class="form-group">
+                <label class="form-label" for="inlineUserName">Ваше имя</label>
+                <input type="text" id="inlineUserName" class="form-input js-cursor-hover" placeholder="Анастасия" autocomplete="name" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inlineUserPhone">Номер телефона</label>
+                <input type="tel" id="inlineUserPhone" class="form-input js-cursor-hover" placeholder="+7 (925) 000-00-00" autocomplete="tel" inputmode="tel" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inlineOrderFormat">Формат композиции</label>
+                <select id="inlineOrderFormat" class="form-select js-cursor-hover">
+                  <option value="custom">Авторский индивидуальный букет</option>
+                  <option value="seasonal">Сезонная подборка SÉASONS</option>
+                  <option value="mono">Монобукет из любимых цветов</option>
+                  <option value="dry">Композиция из сухоцветов в вазе</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inlineUserComment">Текст открытки или пожелания</label>
+                <textarea id="inlineUserComment" class="form-textarea js-cursor-hover" rows="3" placeholder="Адрес, желаемое время или пожелания к гамме..."></textarea>
+              </div>
+
+              <button type="submit" class="modal__submit-btn js-magnetic js-cursor-hover">
+                <span>Отправить заявку</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="modal__success-state" id="inlineOrderSuccess">
+            <div class="modal__success-icon">✓</div>
+            <h3 class="modal__title" style="margin-bottom: 14px;">Благодарим вас</h3>
+            <p style="font-size: 13px; color: rgba(18,18,18,0.7); line-height: 1.8; text-transform: uppercase; letter-spacing: 0.08em;">
+              Заявка принята. Старший флорист ателье свяжется с вами в течение 10 минут для согласования состава букета и отправки предварительного фотоотчета.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER (BEM: .footer)
+       ========================================================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__hero-brand">
+        <div class="brand-logo brand-logo--large">
+          S<span class="brand-logo__e-wrapper">E<svg class="brand-logo__petal" viewBox="0 0 14 22"><path d="M7,0 C12,6 14,14 7,22 C0,14 2,6 7,0 Z"/></svg></span>ASONS
+        </div>
+        <p class="footer__slogan">Дарить — это искусство</p>
+      </div>
+
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="footer__col-title">Мастерская</div>
+          <p class="footer__contact-item">
+            Балашиха, ул. Заречная, д. 32
+            <span class="footer__contact-val">Вход со стороны набережной</span>
+          </p>
+          <p class="footer__contact-item">
+            Режим работы:
+            <span class="footer__contact-val">пн-вс: 10:00 — 20:00</span>
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Связь</div>
+          <ul class="footer__col-list">
+            <li><a href="tel:+79255370808" class="footer__link js-cursor-hover">+7 (925) 537-08-08</a></li>
+            <li><a href="https://vk.com/seasons" target="_blank" class="footer__link js-cursor-hover">VK: @seasons</a></li>
+            <li><a href="mailto:hello@seasons-flowers.ru" class="footer__link js-cursor-hover">hello@seasons-flowers.ru</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Навигация</div>
+          <ul class="footer__col-list">
+            <li><a href="#about" class="footer__link js-cursor-hover">О концепции</a></li>
+            <li><a href="#catalog" class="footer__link js-cursor-hover">Коллекции букетов</a></li>
+            <li><a href="#care" class="footer__link js-cursor-hover">Памятка по уходу</a></li>
+            <li><a href="#packaging" class="footer__link js-cursor-hover">Сервис и доставка</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Индивидуально</div>
+          <p class="footer__contact-item">
+            Оформление свадебных торжеств, частных интерьеров и подарков для бизнес-партнеров.
+          </p>
+          <button class="header__btn js-magnetic js-cursor-hover" id="footerOrderBtn" style="margin-top: 8px;">
+            <span>Заказать звонок</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>© 2026 SÉASONS FLORAL BRAND. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</div>
+        <div>БАЛАШИХА • МОСКВА</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       CART DRAWER
+       ========================================================================== -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer__backdrop" id="cartBackdrop"></div>
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__header">
+        <h3 class="cart-drawer__title">Ваш выбор</h3>
+        <button class="cart-drawer__close js-cursor-hover" id="cartCloseBtn">✕</button>
+      </div>
+
+      <div class="cart-drawer__items" id="cartItemsContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="cart-drawer__footer">
+        <div class="cart-drawer__total-row">
+          <span class="cart-drawer__total-label">Итого к оплате:</span>
+          <span class="cart-drawer__total-price" id="cartTotalPrice">0 ₽</span>
+        </div>
+        <button class="cart-drawer__checkout-btn js-magnetic js-cursor-hover" id="cartCheckoutBtn">
+          <span>Оформить доставку</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       ORDER MODAL
+       ========================================================================== -->
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal__overlay" id="modalOverlay"></div>
+    <div class="modal__content">
+      <button class="modal__close js-cursor-hover" id="modalCloseBtn">✕</button>
+
+      <div id="modalFormContainer">
+        <div class="modal__header">
+          <h3 class="modal__title">Оформить заказ</h3>
+          <p class="modal__desc">Флорист свяжется с вами для уточнения деталей</p>
+        </div>
+
+        <form class="modal__form" id="orderForm">
+          <div class="form-group">
+            <label class="form-label" for="userName">Ваше имя</label>
+            <input type="text" id="userName" class="form-input js-cursor-hover" placeholder="Анастасия" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userPhone">Номер телефона</label>
+            <input type="tel" id="userPhone" class="form-input js-cursor-hover" placeholder="+7 (925) 000-00-00" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="orderFormat">Формат композиции</label>
+            <select id="orderFormat" class="form-select js-cursor-hover">
+              <option value="custom">Авторский индивидуальный букет</option>
+              <option value="seasonal">Сезонная подборка SÉASONS</option>
+              <option value="mono">Монобукет из любимых цветов</option>
+              <option value="dry">Композиция из сухоцветов в вазе</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userComment">Текст открытки или пожелания</label>
+            <textarea id="userComment" class="form-textarea js-cursor-hover" rows="3" placeholder="Адрес, желаемое время или пожелания к гамме..."></textarea>
+          </div>
+
+          <button type="submit" class="modal__submit-btn js-magnetic js-cursor-hover">
+            <span>Отправить заявку</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="modal__success-state" id="modalSuccessState">
+        <div class="modal__success-icon">✓</div>
+        <h3 class="modal__title" style="margin-bottom: 14px;">Благодарим вас</h3>
+        <p style="font-size: 13px; color: rgba(18,18,18,0.7); line-height: 1.8; text-transform: uppercase; letter-spacing: 0.08em;">
+          Заявка принята. Старший флорист ателье свяжется с вами в течение 10 минут для согласования состава букета и отправки предварительного фотоотчета.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast-notice" id="toastNotice">Букет добавлен в корзину</div>
+
+  <!-- ==========================================================================
+       GSAP 3 ANIMATIONS & LOGIC
+       ========================================================================== -->
+  <script src="js/main.js"></script>
+</body>
+</html>
